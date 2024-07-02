@@ -59,7 +59,7 @@
     <!--产品介绍-->
     <div class="image-stack">
       <div class="image-item" v-for="(image, index) in images" :key="index" :class="['image-item-' + index]">
-        <img :src="image" alt="">
+        <img :src="image.src" alt="">
         <div class="overlay" :class="['overlay-' + index]" @mouseenter="handleMouseEnter(index)" @mouseleave="handleMouseLeave">
           <div class="overlay-content">
             <ul>
@@ -70,7 +70,6 @@
           </div>
         </div>
       </div>
-
     </div>
     <!-- 大数据管理系统
     <div id="bigData" class="container-fuild">
@@ -279,9 +278,30 @@ const swiperList = [
   }
 ]
 const images =[
-  product1,
-  product2,
-  product3
+{
+  src:product1,
+  links: [
+    { url: 'https://example.com/link1', text: 'Link 1' },
+    { url: 'https://example.com/link2', text: 'Link 2' },
+    { url: 'https://example.com/link3', text: 'Link 3' }
+  ]
+},
+{
+  src:product2,
+  links: [
+    { url: 'https://example.com/link1', text: 'Link 1' },
+    { url: 'https://example.com/link2', text: 'Link 2' },
+    { url: 'https://example.com/link3', text: 'Link 3' }
+  ]
+},
+{
+  src:product3,
+  links: [
+    { url: 'https://example.com/link1', text: 'Link 1' },
+    { url: 'https://example.com/link2', text: 'Link 2' },
+    { url: 'https://example.com/link3', text: 'Link 3' }
+  ]
+}
 ]
 const modules = [Navigation, Pagination, Scrollbar, A11y, Lazy, Autoplay]
 
@@ -578,7 +598,7 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.3s;
 }
 
@@ -595,14 +615,23 @@ onMounted(() => {
 }
 
 .overlay.show {
-  opacity: 1;
+  opacity: 0;
 }
 
-.overlay-content {
+.overlay-0 .overlay-content {
+  color: #fff;
+  text-align: center;
+  position: relative;
+  left:33.33%;
+}
+.overlay-1 .overlay-content {
   color: #fff;
   text-align: center;
 }
-
+.overlay-2 .overlay-content {
+  color: #fff;
+  text-align: center;
+}
 .overlay-content ul {
   list-style-type: none;
   padding: 0;

@@ -1,7 +1,7 @@
 <template>
   <div id="Software" class="container">
     <div class="row">
-      <div id="left" class="col-md-4 col-xs-12">
+      <div id="left" class="col-md-3 col-xs-12">
         <ul class="left-container wow bounceInLeft">
           <p>软件产品</p>
           <li v-for="(item, index) in softwareList" :key="index">
@@ -9,7 +9,7 @@
           </li>
         </ul>
       </div>
-      <div id="right" class="col-md-8 col-xs-12 wow bounceInRight">
+      <div id="right" class="col-md-9 col-xs-12 wow bounceInRight">
         <router-view></router-view>
       </div>
     </div>
@@ -42,7 +42,7 @@ onMounted(() => {
 }
 .left-container {
   width: 60%;
-  margin: 0 auto;
+  margin: 0 0;
   border: 1px solid #474747;
   border-radius: 5px;
 }
