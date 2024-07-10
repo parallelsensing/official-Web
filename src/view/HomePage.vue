@@ -627,10 +627,14 @@ onMounted(() => {
 .overlay-1 .overlay-content {
   color: #fff;
   text-align: center;
+  position: relative;
+  left:15%;
 }
 .overlay-2 .overlay-content {
   color: #fff;
   text-align: center;
+  position: relative;
+  left:66.67%;
 }
 .overlay-content ul {
   list-style-type: none;
