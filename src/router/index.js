@@ -103,6 +103,14 @@ const routes = [
         meta: {
           title: '联系我们'
         }
+      },
+      {
+        path: '/newsdetail',
+        name: 'newsdetail',
+        component: () => import('@/view/NewsDetail.vue'),
+        meta: {
+          title: '详情'
+        }
       }
     ]
   }

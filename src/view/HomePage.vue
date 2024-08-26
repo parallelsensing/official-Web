@@ -1,217 +1,79 @@
 <template>
   <div id="HomePage">
     <section class="HomePage-banner">
-      <!--视频页面-->
+      <!--页面-->
       <div class="HomePage-banner-img">
-        <img id="banner-img"
-          autoplay="" loop="" playsinline="" muted="" style="width:100%;margin-top:20px;"
-          src="@/assets/img/banner.jpg">
-        </img>
+        <img id="banner-img" style="width:100%;height: calc(100vh - 110px);object-fit: cover;"
+          src="@/assets/img/banner12.png">
         <div class="HomePage-banner-text">
-          <h1>
-            <span >塑造认知传感<br></span>
-            <span >开拓时空智能</span>
-          </h1>
-          <button
-              @click = "jumpto_product"
-              class="btn btn-default btn-sm"
-              onmouseenter="this.style.borderColor='#ffffff'; this.style.backgroundColor='#ffffff'; this.style.color='#3f3f3f';"
-              onmouseleave="this.style.backgroundColor='transparent'; this.style.borderColor='#ffffff'; this.style.color='#ffffff';"
-            >
+          <button @click="jumpto_product" class=""
+            style="background-color: transparent;border: 1px solid #920783;border-radius: 0; color: #920783;font-size: 2.5rem;">
             了解更多
           </button>
         </div>
       </div>
     </section>
 
-    <!-- 轮播图 -->
-    <div class = "swiper-container">
-      <swiper
-        id="swiper"
-        :modules="modules"
-        :slides-per-view="1"
-        :space-between="0"
-        navigation
-        lazy
-        loop
-        autoplay
-        :pagination="{
-          clickable: true
-        }"
-      >
-        <swiper-slide
-          class="banner-swiper"
-          v-for="(item, index) in swiperList"
-          :key="index"
-        >
-          <img class="swiper-lazy" :data-src="item.img" alt="轮播图" />
-          <div class="swiper-lazy-preloader"></div>
-          <div class="swiper-slide-title">
-            <h1>{{ item.title }}</h1>
-            <p>{{ item.content }}</p>
-          </div>
-        </swiper-slide>
-      </swiper>
-      <div class ="swiper-static-title">
-        <h1>应用领域:</h1>
+    <!-- 业务介绍   应用领域-->
+    <div class="container-fluid" style="height: 110vh; padding: 0 5%;">
+      <div style="margin-bottom: 5vh;">
+        <h1 style="display: flex;justify-content: center;align-items: center;">应用领域</h1>
+        <div style="height: 3px; background-color: #920783; width: 70px; margin: 0 auto;"></div>
       </div>
-    </div>
-    <!--产品介绍-->
-    <div class="image-stack">
-      <div class="image-item" v-for="(image, index) in images" :key="index" :class="['image-item-' + index]">
-        <img :src="image.src" alt="">
-        <div class="overlay" :class="['overlay-' + index]" @mouseenter="handleMouseEnter(index)" @mouseleave="handleMouseLeave">
-          <div class="overlay-content">
-            <ul>
-              <li v-for="link in image.links" :key="link.url">
-                <a :href="link.url">{{ link.text }}</a>
-              </li>
-            </ul>
+      <div class="row">
+        <!-- 左列 -->
+        <div class="col-xs-12 col-md-7">
+
+          <div class="" style="padding-bottom: 4vh;display:flex;transition: transform 0.3s ease;cursor: pointer;"
+            @mouseenter="handleMouseEnterScale" @mouseleave="handleMouseLeaveScale">
+            <img style="width: 100%; height: 43vh;flex: 9;min-width: 0;" src="@/assets/img/智慧工厂.png">
+            <div style="flex:1">
+              <div style="writing-mode: vertical-rl; text-orientation: upright;height: 43vh;width: 100%;background-color: #920783;color: #fff;font-size: 3rem;display: flex;
+                        justify-content: center;align-items: center;">智慧工厂</div>
+            </div>
+          </div>
+
+          <div class="" style="padding-bottom: 4vh;display:flex;transition: transform 0.3s ease;cursor: pointer;"
+            @mouseenter="handleMouseEnterScale" @mouseleave="handleMouseLeaveScale">
+            <img style="width: 100%; height: 43vh;flex: 9;min-width: 0;" src="@/assets/img/智慧交通.png">
+            <div style="flex:1">
+              <div style="writing-mode: vertical-rl; text-orientation: upright;height: 43vh;width: 100%;background-color: #920783;color: #fff;font-size: 3rem;display: flex;
+                        justify-content: center;align-items: center;">智慧交通</div>
+            </div>
+          </div>
+        </div>
+        <!-- 右列 -->
+        <div class="col-xs-12 col-md-5" style="transition: transform 0.3s ease;cursor: pointer;"
+          @mouseenter="handleMouseEnterScale" @mouseleave="handleMouseLeaveScale">
+          <div style="display:flex;">
+            <img style="width: auto; height: 90vh;flex:9;min-width: 0;" src="@/assets/img/智慧安防.jpg">
+            <div style="flex:1;">
+              <div style="writing-mode: vertical-rl;text-orientation: upright;height: 90vh;width: 100%;background-color: #920783;color: #fff;font-size: 3rem;display: flex;
+                        justify-content: center;align-items: center;">智慧安防</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- 大数据管理系统
-    <div id="bigData" class="container-fuild">
-      <div class="row bigData-container">
-        <div class="col-xs-12 col-sm-12 col-md-6 wow zoomIn">
-          <img
-            class="img-responsive"
-            src="@/assets/img/img1.png"
-            alt="大数据管理系统"
-          />
+    <!-- 业务介绍   新闻资讯-->
+    <div class="container-fluid" style="padding: 0 5%;height: auto;">
+      <div class="col-xs-12 col-md-12">
+        <div style="margin-bottom: 5vh;">
+          <h1 style="display: flex;justify-content: center;align-items: center;">新闻资讯</h1>
+          <div style="height: 3px; background-color: #920783; width: 70px; margin: 0 auto;"></div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-6">
-          <h2 class="bigData-title">
-            智能雷达
-            <small>/ Lidar</small>
-          </h2>
-          <p>
-            简介1
-          </p>
-          <p>
-            简介2
-          </p>
-          <h2 class="bigData-device">PC/PAD/Phone &nbsp; 全设备支持</h2>
-          <a href="javascript:;" class="btn btn-lg btn-block btn-info"
-            >联系我们</a
-          >
+        <div>
+          <NewsContainer>
+          </NewsContainer>
         </div>
-      </div>
-    </div>-->
-
-    <!-- 您身边的IT专家
-    <div id="contactUs" class="container-fuild text-center">
-      <div class="container contactUs-container wow slideInUp">
-        <h1>您身边的IT专家</h1>
-        <h3>7x24小时提供出色的IT服务</h3>
-        <button
-          class="btn btn-default btn-sm"
-          onmouseleave="this.style.borderColor='#ffffff'; this.style.backgroundColor='#ffffff'; this.style.color='#3f3f3f';"
-          onmouseenter="this.style.backgroundColor='transparent'; this.style.borderColor='#ffffff'; this.style.color='#ffffff';"
-        >
-          联系我们
-        </button>
-        <div class="contactUs-contactWay">
-          <span></span>
-          <span></span>
-          <span></span>
+        <div style="display: flex;align-items:center;justify-content: center;margin:30px 0;">
+          <button class=""
+            style="background-color: transparent;border: 1px solid #920783;border-radius: 0; color: #920783;font-size: 2.5rem;">
+            更多新闻
+          </button>
         </div>
-      </div>
-    </div>-->
-
-    <!-- 客户评价
-    <div id="customer" class="container-fuild">
-      <div class="container customer-container">
-        <p class="customer-title text-center">客户评价</p>
-        <swiper
-          class="swiper-container customer-swiper hidden-xs"
-          :modules="modules"
-          :slides-per-view="1"
-          :space-between="0"
-          navigation
-          loop
-          autoplay
-          :pagination="{
-            clickable: true
-          }"
-        >
-          <swiper-slide
-            class="swiper-slide customer-block"
-            v-for="(item, index) in customerList"
-            :key="index"
-          >
-            <div class="customer-logo">
-              <img class="center-block" :src="item.logo" alt="logo" />
-            </div>
-            <div class="customer-yh">
-              <img src="@/assets/img/yinhao.png" alt="引号" />
-            </div>
-            <div class="customer-content1">
-              <small>{{ item.content }}</small>
-            </div>
-            <div class="customer-content2">{{ item.title }}</div>
-          </swiper-slide>
-        </swiper>
-
-        <div class="row visible-xs customer-block">
-          <div
-            class="col-xs-12"
-            v-for="(item, index) in customerList"
-            :key="index"
-          >
-            <div class="customer-logo">
-              <img class="center-block" :src="item.logo" alt="logo" />
-            </div>
-            <div class="customer-yh">
-              <img src="@/assets/img/yinhao.png" alt="引号" />
-            </div>
-            <div class="customer-content1">
-              <small>{{ item.content }}</small>
-            </div>
-            <div class="customer-content2">
-              <small>{{ item.title }}</small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>-->
-    <!-- 为什么选择我们 -->
-    <div id="whyChooseUs" class="conatiner-fuild">
-      <div class="container">
-        <div class="whyChooseUs-title text-center">
-          <p>新闻资讯</p>
-          <p>NEWS</p>
-        </div>
-        <!--
-        <div class="row">
-          <div
-            class="col-xs-12 col-sm-6 col-md-3 server-wrapper"
-            v-for="(item, index) in serverList"
-            :key="index"
-          >
-            <div
-              class="server-block wow slideInUp"
-              onmouseenter="this.style.color='#28f';this.style.borderColor='#28f'"
-              onmouseleave="this.style.color='#666';this.style.borderColor='#ccc'"
-            >
-              <img class="center-block" :src="item.logo" alt="logo" />
-              <p class="text-center">{{ item.title }}</p>
-              <div
-                class="text-center"
-                v-html="item.content"
-                onmouseenter="this.style.color='#28f'"
-                onmouseleave="this.style.color='#ccc'"
-              ></div>
-            </div>
-          </div>
-        </div>-->
-        <NewsContainer>
-        </NewsContainer>
       </div>
     </div>
-
-
   </div>
 </template>
 
@@ -247,6 +109,15 @@ import { ref } from 'vue';
 
 const isHovered = ref(-1);
 
+const handleMouseEnterScale = (event) => {
+  // 添加放大效果
+  event.target.style.transform = 'scale(1.05)';
+}
+const handleMouseLeaveScale = (event) => {
+  // 移除放大效果
+  event.target.style.transform = 'scale(1)';
+}
+
 const handleMouseEnter = (index) => {
   isHovered.value = index;
 };
@@ -277,31 +148,31 @@ const swiperList = [
     content: ''
   }
 ]
-const images =[
-{
-  src:product1,
-  links: [
-    { url: 'https://example.com/link1', text: 'Link 1' },
-    { url: 'https://example.com/link2', text: 'Link 2' },
-    { url: 'https://example.com/link3', text: 'Link 3' }
-  ]
-},
-{
-  src:product2,
-  links: [
-    { url: 'https://example.com/link1', text: 'Link 1' },
-    { url: 'https://example.com/link2', text: 'Link 2' },
-    { url: 'https://example.com/link3', text: 'Link 3' }
-  ]
-},
-{
-  src:product3,
-  links: [
-    { url: 'https://example.com/link1', text: 'Link 1' },
-    { url: 'https://example.com/link2', text: 'Link 2' },
-    { url: 'https://example.com/link3', text: 'Link 3' }
-  ]
-}
+const images = [
+  {
+    src: product1,
+    links: [
+      { url: 'https://example.com/link1', text: 'Link 1' },
+      { url: 'https://example.com/link2', text: 'Link 2' },
+      { url: 'https://example.com/link3', text: 'Link 3' }
+    ]
+  },
+  {
+    src: product2,
+    links: [
+      { url: 'https://example.com/link1', text: 'Link 1' },
+      { url: 'https://example.com/link2', text: 'Link 2' },
+      { url: 'https://example.com/link3', text: 'Link 3' }
+    ]
+  },
+  {
+    src: product3,
+    links: [
+      { url: 'https://example.com/link1', text: 'Link 1' },
+      { url: 'https://example.com/link2', text: 'Link 2' },
+      { url: 'https://example.com/link3', text: 'Link 3' }
+    ]
+  }
 ]
 const modules = [Navigation, Pagination, Scrollbar, A11y, Lazy, Autoplay]
 
@@ -414,8 +285,8 @@ const serverList = [
     content: '<p>由技术支持工程师，负责问题解答</p>需求受理及故障受理'
   }
 ]
-function jumpto_product(){
-    router.push({path:'/software'})
+function jumpto_product() {
+  router.push({ path: '/software' })
 }
 // const { proxy } = getCurrentInstance() //获取上下文实例，ctx=vue2的this
 onMounted(() => {
@@ -436,48 +307,64 @@ onMounted(() => {
 /* 整体盒子 */
 #HomePage {
   width: 100%;
+
 }
-.HomePage-banner{
+
+.HomePage-banner {
   position: relative;
 }
-.HomePage-banner-text{
+
+.HomePage-banner-text {
   position: absolute;
+  margin-top: 60vh;
   top: 0px;
   left: 0;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   text-align: center;
   color: #fff;
   /*background-color: rgba(0, 0, 0, 0.5);*/
 
 }
-.HomePage-banner-text p{
+
+.HomePage-banner-text p {
   font-size: 120px;
-  pointer-events: none; /* 让文字不遮挡视频的交互*/
+  pointer-events: none;
+  /* 让文字不遮挡视频的交互*/
 }
-.HomePage-banner-text h1{
+
+.HomePage-banner-text h1 {
   font-size: 88px;
   font-weight: bolder;
-  pointer-events: none; /* 让文字不遮挡视频的交互*/
+  pointer-events: none;
+  /* 让文字不遮挡视频的交互*/
 }
-.HomePage-banner-text button{
+
+.container-fluid {
+  height: 100vh;
+  margin-top: 5vh;
+}
+
+.HomePage-banner-text button {
   width: 200px;
   height: 50px;
   margin-top: 40px;
   border-radius: 40px;
   font-size: 20px;
 }
-.HomePage-banner-text button:hover{
+
+.HomePage-banner-text button:hover {
   background-color: #ccc;
 }
+
 .swiper-container {
   position: relative;
 }
-.swiper-static-title{
+
+.swiper-static-title {
   position: relative;
   top: 40px;
   left: 0;
@@ -489,9 +376,11 @@ onMounted(() => {
   text-align: center;
   color: #000000;
   z-index: 1;
-  pointer-events: none; /* 让文字不遮挡视频的交互*/
-  >h1{font-size: 44px;}
+  pointer-events: none;
+  /* 让文字不遮挡视频的交互*/
+  /* h1 {font-size: 44px} */
 }
+
 /* 顶部轮播图 */
 #swiper {
   width: 100%;
@@ -522,21 +411,24 @@ onMounted(() => {
   line-height: 80px;
 }
 
-#swiper .banner-swiper .swiper-slide-title > h1 {
+#swiper .banner-swiper .swiper-slide-title>h1 {
   font-size: 50px;
   margin-top: 12%;
 }
 
-#swiper .banner-swiper .swiper-slide-title > p {
+#swiper .banner-swiper .swiper-slide-title>p {
   font-size: 20px;
   margin-top: 1%;
   font-weight: 700;
 }
+
 .image-stack {
-  top:40px;
-  position:relative;
-  width: 100%; /* 设置容器宽度 */
-  height: 800px; /* 设置容器高度 */
+  top: 40px;
+  position: relative;
+  width: 100%;
+  /* 设置容器宽度 */
+  height: 800px;
+  /* 设置容器高度 */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -554,7 +446,8 @@ onMounted(() => {
   left: 0;
   clip-path: polygon(0 0, 33.33% 0, 33.33% 100%, 0 100%);
   transition: transform 0.3s ease-in-out;
-  transform-origin: 16.67% center; /* 设置缩放中心点为图片中心 */
+  transform-origin: 16.67% center;
+  /* 设置缩放中心点为图片中心 */
   flex-shrink: 0;
 }
 
@@ -562,7 +455,8 @@ onMounted(() => {
   left: 0;
   clip-path: polygon(33.33% 0, 66.67% 0, 66.67% 100%, 33.33% 100%);
   transition: transform 0.3s ease-in-out;
-  transform-origin: 50% center; /* 设置缩放中心点为图片中心 */
+  transform-origin: 50% center;
+  /* 设置缩放中心点为图片中心 */
   flex-shrink: 0;
 }
 
@@ -570,9 +464,11 @@ onMounted(() => {
   left: 0;
   clip-path: polygon(66.67% 0, 100% 0, 100% 100%, 66.67% 100%);
   transition: transform 0.3s ease-in-out;
-  transform-origin: 83.33% center; /* 设置缩放中心点为图片中心 */
+  transform-origin: 83.33% center;
+  /* 设置缩放中心点为图片中心 */
   flex-shrink: 0;
 }
+
 .image-item-0:hover {
   transform: scale(1.1);
 }
@@ -584,10 +480,12 @@ onMounted(() => {
 .image-item-2:hover {
   transform: scale(1.1);
 }
+
 .image-item img {
   width: 100%;
   height: 100%;
 }
+
 .overlay {
   position: absolute;
   top: 0;
@@ -622,20 +520,23 @@ onMounted(() => {
   color: #fff;
   text-align: center;
   position: relative;
-  left:33.33%;
+  left: 33.33%;
 }
+
 .overlay-1 .overlay-content {
   color: #fff;
   text-align: center;
   position: relative;
-  left:15%;
+  left: 15%;
 }
+
 .overlay-2 .overlay-content {
   color: #fff;
   text-align: center;
   position: relative;
-  left:66.67%;
+  left: 66.67%;
 }
+
 .overlay-content ul {
   list-style-type: none;
   padding: 0;
@@ -653,6 +554,7 @@ onMounted(() => {
 .overlay-content a:hover {
   text-decoration: underline;
 }
+
 /* 大数据管理系统 */
 #bigData {
   padding: 100px;
@@ -784,12 +686,12 @@ onMounted(() => {
   height: 48px;
 }
 
-#whyChooseUs .server-block > p {
+#whyChooseUs .server-block>p {
   font-size: 20px;
   margin: 30px 0;
 }
 
-#whyChooseUs .server-block > div {
+#whyChooseUs .server-block>div {
   color: #ccc;
 }
 
@@ -862,7 +764,7 @@ onMounted(() => {
     padding: 30px;
   }
 
-  #customer .customer-block > div {
+  #customer .customer-block>div {
     padding: 30px 0;
   }
 
@@ -891,12 +793,12 @@ onMounted(() => {
     height: 48px;
   }
 
-  #whyChooseUs .server-block > p {
+  #whyChooseUs .server-block>p {
     font-size: 20px;
     margin: 30px 0;
   }
 
-  #whyChooseUs .server-block > div {
+  #whyChooseUs .server-block>div {
     color: #ccc;
   }
 }

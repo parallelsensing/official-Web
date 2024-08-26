@@ -6,6 +6,7 @@
       </div>
       <div class="content">
         <h3>{{ item.title }}</h3>
+        <p>{{ item.date }}</p>
         <p>{{ item.abstract }}</p>
       </div>
     </div>
@@ -20,23 +21,26 @@ export default {
       newsItems: [
         {
           id: 1,
-          imageUrl: 'https://wwwcms.hesaitech.com/uploads/1280_X1280_9_7a8d767a0c.PNG',
-          title: 'News Article 1',
-          abstract: 'This is the abstract for news article 1.',
+          imageUrl: '/src/assets/img/新闻资讯.jpg',
+          title: '新闻资讯1',
+          date: '2024-08-31',
+          abstract: '新闻资讯1的摘要信息。',
           url: 'https://example.com/news1'
         },
         {
           id: 2,
-          imageUrl: 'https://wwwcms.hesaitech.com/uploads/1280_X1280_9_7a8d767a0c.PNG',
-          title: 'News Article 2',
-          abstract: 'This is the abstract for news article 2.',
+          imageUrl: '/src/assets/img/新闻资讯2.png',
+          title: '新闻资讯2',
+          date: '2024-08-31',
+          abstract: '新闻资讯2的摘要信息。',
           url: 'https://example.com/news2'
         },
         {
           id: 3,
-          imageUrl: 'https://wwwcms.hesaitech.com/uploads/1280_X1280_9_7a8d767a0c.PNG',
-          title: 'News Article 3',
-          abstract: 'This is the abstract for news article 3.',
+          imageUrl: '/src/assets/img/新闻资讯3.jpg',
+          title: '新闻资讯3',
+          date: '2024-08-31',
+          abstract: '新闻资讯3的摘要信息。',
           url: 'https://example.com/news3'
         }
       ]
@@ -77,7 +81,7 @@ export default {
 }
 
 .image {
-  height: 500px;
+  height: 400px;
   overflow: hidden;
 }
 
@@ -89,20 +93,20 @@ export default {
 
 .content {
   padding: 16px;
-  background-color: #f4f4f4;
+  color: #fff;
+  background-color: #920783;
   flex-grow: 1;
+  height: 150px;
 }
 
 .content h3 {
   margin-top: 0;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 20px;
 }
 
 .content p {
+  color: #fff;
   margin-bottom: 0;
-  font-size: 14px;
-  color: #666;
 }
 
 @media (max-width: 767px) {

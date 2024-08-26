@@ -5,7 +5,10 @@ import GoTop from '@/components/GoTop.vue'
 </script>
 
 <template>
-  <Header></Header>
+  <div style="margin-bottom: 20px;">
+    <Header></Header>
+
+  </div>
   <!-- 路由出口 -->
   <!-- 路由匹配到的组件将渲染在这里 -->
   <router-view></router-view>
@@ -13,5 +16,6 @@ import GoTop from '@/components/GoTop.vue'
   <GoTop></GoTop>
 </template>
 
-<style scoped></style>
+<style scoped>
 
+</style>

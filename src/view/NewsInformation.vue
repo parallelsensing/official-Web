@@ -1,101 +1,257 @@
 <template>
   <div id="NewsInformation">
     <div class="container">
-      <div class="container text-center">
-        <h3>新闻动态</h3>
-        <p style="color: #b2b2b2">Company News</p>
+      <div class="container text-center custom-header">
+        <h1 class="custom-h1">新闻动态</h1>
       </div>
       <div class="nav container text-center">
-        <a href="javascript:;" class="active">公司新闻</a>
-        <a href="javascript:;">行业动态</a>
+        <button class="news-button" :class="{ active: selectedNews === 'company' }"
+          @click="handleSelect('company')">公司新闻</button>
+        <button class="news-button" :class="{ active: selectedNews === 'industry' }"
+          @click="handleSelect('industry')">行业动态</button>
       </div>
-      <ul class="news-container container-fuild">
-        <li v-for="(item, index) in newsList" :key="index" class="wow fadeIn">
-          <div class="content">
-            <p>{{ item.title }}</p>
-            <p>{{ item.introduce }}</p>
+
+      <ul class="container-fuild custom-ul">
+        <li v-for="(item, index) in newsList" :key="index" class="wow fadeIn custom-li">
+          <div class="li-content">
+            <img :src="item.imageUrl" />
+            <div>
+            </div>
           </div>
-          <div class="time">
-            <p>{{ item.date }}</p>
-            <span>{{ item.year }}</span>
+
+          <div class="li-content-text">
+            <div class="content">
+              <h3 class="custom-h3" @click="goToNewsDetail(index)">{{ item.title }}</h3>
+              <div class="time">
+                <p>{{ item.date }}</p>
+              </div>
+              <p style="width:90%">{{ item.introduce }}</p>
+            </div>
           </div>
-          <div class="circle">
-            <img src="@/assets/img/circle.png" />
-            <i class="line center-block"></i>
-          </div>
+
         </li>
       </ul>
+
       <div class="contaianer-fuild text-center more">
         <i class="glyphicon glyphicon-th"></i>
       </div>
+
     </div>
   </div>
 </template>
 
 <script setup name="NewsInformation">
 import WOW from 'wow.js'
-import { onMounted } from 'vue'
-const newsList = [
+import { onMounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter();
+const selectedNews = ref('company');
+const newsList = ref([]);
+function handleSelect(params) {
+  selectedNews.value = params;
+  newsList.value = selectedNews.value === 'company' ? newsCompanyList : newsIndustryList;
+}
+
+function goToNewsDetail(id) {
+  router.push({
+    path: '/newsdetail',
+    query: { id: id, news: selectedNews.value }
+  });
+}
+
+const newsCompanyList = [
   {
-    id: '001',
-    title: '世界上第一个程序员',
+    id: '1',
+    title: '人工智能',
     introduce:
-      '为计算程序拟定“算法”，写作的第四份“程序设计流程图”，被珍视为“第一位给计算机',
-    date: '05-24',
-    year: '2019'
+      '近日，人工智能（AI）在医疗领域再次取得了突破性进展。',
+    date: '2019-05-24',
+    imageUrl: '/src/assets/img/新闻资讯.jpg',
   },
   {
-    id: '002',
-    title: '世界上第二个程序员',
+    id: '2',
+    title: '新闻标题2',
     introduce:
       '为计算程序拟定“算法”，写作的第四份“程序设计流程图”，被珍视为“第一位给计算机',
-    date: '05-24',
-    year: '2019'
+    date: '2019-05-24',
+    imageUrl: '/src/assets/img/新闻资讯2.png',
   },
   {
-    id: '003',
-    title: '世界上第三个程序员',
+    id: '3',
+    title: '新闻标题3',
     introduce:
       '为计算程序拟定“算法”，写作的第四份“程序设计流程图”，被珍视为“第一位给计算机',
-    date: '05-24',
-    year: '2019'
+    date: '2019-05-24',
+    imageUrl: '/src/assets/img/新闻资讯3.jpg',
   },
   {
-    id: '004',
-    title: '世界上第四个程序员',
+    id: '4',
+    title: '新闻标题4',
     introduce:
       '为计算程序拟定“算法”，写作的第四份“程序设计流程图”，被珍视为“第一位给计算机',
-    date: '05-24',
-    year: '2019'
+    date: '2019-05-24',
+    imageUrl: '/src/assets/img/新闻资讯2.png',
   },
   {
-    id: '005',
-    title: '世界上第五个程序员',
+    id: '5',
+    title: '新闻标题5',
     introduce:
       '为计算程序拟定“算法”，写作的第五份“程序设计流程图”，被珍视为“第一位给计算机',
-    date: '05-24',
-    year: '2019'
+    date: '2019-05-24',
+    imageUrl: '/src/assets/img/新闻资讯3.jpg',
   },
   {
-    id: '006',
-    title: '世界上第六个程序员',
+    id: '6',
+    title: '新闻标题6',
     introduce:
       '为计算程序拟定“算法”，写作的第五份“程序设计流程图”，被珍视为“第一位给计算机',
-    date: '05-24',
-    year: '2019'
+    date: '2019-05-24',
+    imageUrl: '/src/assets/img/新闻资讯.jpg',
   }
 ]
+
+const newsIndustryList = [
+  {
+    id: '1',
+    title: '智慧驾驶',
+    introduce:
+      '上周，智慧驾驶（AI）在标高用户提供若非如果他人发再次取得了突破性进展。',
+    date: '2023-09-30',
+    imageUrl: '/src/assets/img/test.png',
+  },
+  {
+    id: '2',
+    title: '另一个标题2',
+    introduce:
+      '为计算程序拟定“算法”，写作的第四份“程序设计流程图”，被珍视为“第一位给计算机',
+    date: '2022-10-14',
+    imageUrl: '/src/assets/img/新闻资讯.jpg',
+  },
+  {
+    id: '3',
+    title: '新闻标题3',
+    introduce:
+      '为计算程序拟定“算法”，写作的第四份“程序设计流程图”，被珍视为“第一位给计算机',
+    date: '2019-05-24',
+    imageUrl: '/src/assets/img/新闻资讯3.jpg',
+  },
+  {
+    id: '4',
+    title: '新闻标题4',
+    introduce:
+      '为计算程序拟定“算法”，写作的第四份“程序设计流程图”，被珍视为“第一位给计算机',
+    date: '2019-05-24',
+    imageUrl: '/src/assets/img/新闻资讯2.png',
+  },
+  {
+    id: '5',
+    title: '新闻标题5',
+    introduce:
+      '为计算程序拟定“算法”，写作的第五份“程序设计流程图”，被珍视为“第一位给计算机',
+    date: '2019-05-24',
+    imageUrl: '/src/assets/img/新闻资讯3.jpg',
+  },
+  {
+    id: '6',
+    title: '新闻标题6',
+    introduce:
+      '为计算程序拟定“算法”，写作的第五份“程序设计流程图”，被珍视为“第一位给计算机',
+    date: '2019-05-24',
+    imageUrl: '/src/assets/img/新闻资讯.jpg',
+  }
+]
+
 onMounted(() => {
+  newsList.value = newsCompanyList
   var wow = new WOW()
   wow.init()
 })
 </script>
 
 <style scoped>
+.li-content-text {
+  width: 60%;
+  height: 200px;
+  margin-left: 4%;
+}
+
+.li-content {
+  position: relative;
+  width: 40%;
+  height: 200px;
+}
+
+.li-content>img {
+  width: 100%;
+  height: 100%;
+  padding: 1%;
+  z-index: 2;
+  position: absolute;
+  top: -20px;
+  left: 5px;
+}
+
+.li-content>div {
+  width: 98%;
+  height: 95%;
+  padding: 1%;
+  background-color: #920783;
+  z-index: 1;
+  position: absolute;
+  top: -7px;
+  left: 18px;
+}
+
+.custom-li {
+  display: flex;
+  margin-bottom: 20px;
+  background-color: #DCDCDC;
+}
+
+.custom-ul {
+  margin-top: 50px;
+}
+
+.custom-h1 {
+  font-size: 4.5rem;
+}
+
+.custom-h3 {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.custom-header {
+  width: auto;
+  height: 20vh;
+  background: linear-gradient(to bottom right, #5A2891 20%, #d0357d 80%);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.news-button {
+  background-color: #fff;
+  border: 1px solid #911681;
+  color: #911681;
+  margin: 0 30px;
+  width: 120px;
+  font-size: larger;
+  cursor: pointer;
+}
+
+.news-button.active {
+  background-color: #911681;
+  color: #fff;
+}
+
 .nav {
   margin: 20px 0;
 }
-.nav > a {
+
+.nav>a {
   display: inline-block;
   text-decoration: none;
   width: 120px;
@@ -104,19 +260,23 @@ onMounted(() => {
   color: #333;
   border: 1px solid #333;
 }
-.nav > a.active {
+
+.nav>a.active {
   color: #1e73be;
   border-color: #1e73be;
 }
-.nav > a:hover {
+
+.nav>a:hover {
   color: #1e73be;
   border-color: #1e73be;
 }
+
 .news-container {
   overflow: hidden;
   margin-bottom: 0;
 }
-.news-container > li {
+
+.news-container>li {
   width: 55.6%;
   height: 120px;
   float: left;
@@ -125,36 +285,43 @@ onMounted(() => {
   border-left: 1px solid transparent;
   border-right: 1px solid transparent;
 }
-.news-container > li:hover {
+
+.news-container>li:hover {
   color: #1e73be;
   border: 1px solid #1e73be;
   cursor: pointer;
 }
-.news-container > li:nth-of-type(2n) {
+
+.news-container>li:nth-of-type(2n) {
   float: right;
   text-align: left;
 }
-.news-container > li > .content {
-  width: 60%;
+
+.news-container>li>.content {
+  width: auto;
   float: left;
   padding: 20px 0;
 }
-.news-container > li > .time {
+
+.news-container>li>.time {
   width: 20%;
   float: left;
   padding: 10px 0;
 }
-.news-container > li > .time > p {
+
+.news-container>li>.time>p {
   font-size: 30px;
   margin: 5px 0;
 }
-.news-container > li > .circle {
+
+.news-container>li>.circle {
   width: 20%;
   height: 100%;
   float: left;
   position: relative;
 }
-.news-container > li > .circle > img {
+
+.news-container>li>.circle>img {
   position: absolute;
   top: 0;
   left: 0;
@@ -164,51 +331,61 @@ onMounted(() => {
   width: 20px;
   height: 20px;
 }
-.news-container > li > .circle > i {
+
+.news-container>li>.circle>i {
   display: block;
   width: 1px;
   height: 100%;
   background: #707070;
 }
-.news-container > li:nth-of-type(2n) > .content {
+
+.news-container>li:nth-of-type(2n)>.content {
   float: right;
 }
-.news-container > li:nth-of-type(2n) > .time {
+
+.news-container>li:nth-of-type(2n)>.time {
   float: right;
 }
-.news-container > li:nth-of-type(2n) > .circle {
+
+.news-container>li:nth-of-type(2n)>.circle {
   float: right;
 }
-.news-container > li:nth-of-type(1) > .circle > i {
+
+.news-container>li:nth-of-type(1)>.circle>i {
   height: 50%;
   position: absolute;
   top: 50%;
   left: 50%;
 }
+
 .more {
   font-size: 25px;
   color: #707070;
 }
-.more > i {
+
+.more>i {
   cursor: pointer;
 }
+
 @media screen and (max-width: 767px) {
-  .news-container > li {
+  .news-container>li {
     width: 100%;
   }
-  .news-container > li > .content {
+
+  .news-container>li>.content {
     width: 70%;
     text-align: left;
     float: right;
   }
-  .news-container > li > .time {
-    width: 30%;
+
+  .news-container>li>.time {
+    width: auto;
     text-align: left;
     float: right;
   }
-  .news-container > li > .circle {
+
+  .news-container>li>.circle {
     display: none;
   }
 }
 </style>
-
