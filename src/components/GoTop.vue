@@ -8,7 +8,7 @@
 import { ref } from 'vue'
 const flag = ref(false)
 function GoTop() {
-  ;(function smoothscroll() {
+  (function smoothscroll() {
     var currentScroll =
       document.documentElement.scrollTop || document.body.scrollTop
     if (currentScroll > 0) {

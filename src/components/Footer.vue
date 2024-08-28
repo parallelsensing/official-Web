@@ -1,6 +1,6 @@
 <template>
   <div id="footer" class="container-fluid">
-    <div class="header-nav hidden-xs" style="border-bottom:1px solid #000;display: flex;">
+    <div class="header-nav hidden-xs custom-nav">
       <!-- 导航内容 -->
       <ul class="header-nav-wrapper" style="padding:0 3%">
         <li v-for="(item, index) in navList" :key="index" :class="index == navIndex ? 'active' : ''"
@@ -12,7 +12,7 @@
         </li>
       </ul>
     </div>
-    
+
     <div>
       <p class="address_tel_fax">
       <p>地址：{{ address }}</p>
@@ -107,6 +107,11 @@ function menuClick() {
 </script>
 
 <style scoped>
+.custom-nav {
+  border-bottom: 1px solid #000;
+  display: flex;
+}
+
 #footer .header-nav .header-nav-wrapper {
   line-height: 110px;
   float: left;

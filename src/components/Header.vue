@@ -59,7 +59,7 @@
     <!-- 手机导航 -->
     <div class="header-nav-m container-fuild visible-xs">
       <div class="header-nav-m-logo">
-        <img class="center-block" src="@/assets/img/logo_black.png" alt="logo" />
+        <img class="center-block" src="@/assets/img/logo-phone.png" alt="logo" />
       </div>
       <!-- 导航栏 -->
       <div class="header-nav-m-menu text-center">
@@ -152,7 +152,7 @@ const navList = [
         path: '/software/bigData',
         children: [
           {
-            name: '三位监控平台',
+            name: '三维监控平台',
             path: '',
             children: []
           },
@@ -224,7 +224,7 @@ function menuClick() {
 }
 
 .custom-nav-item {
-  margin: 0 30px !important;
+  margin: 0 1.5vw !important;
 }
 
 .custom-subitem {
@@ -247,6 +247,8 @@ function menuClick() {
   margin-right: 5%;
   right: 0;
   top: 40px;
+  background-color: #fff;
+  z-index: 11;
 }
 
 .custom-language-option {
@@ -276,7 +278,8 @@ function menuClick() {
 
 .active {
   color: #920783;
-  transform: scale(1.3);
+  transition: all ease 0.3s;
+  transform: scale(1.2);
 }
 
 /* 顶部 */
@@ -332,8 +335,10 @@ function menuClick() {
 
 #header .header-nav .header-nav-wrapper {
   line-height: 110px;
-  margin: auto;
-  max-width: 1000px;
+  max-width: 80vw;
+  min-width: 60vw;
+  display:flex;
+  justify-content: center;
 }
 
 /* 导航栏 每个导航 */
@@ -347,8 +352,7 @@ function menuClick() {
 /* 导航栏 每个导航下面的 a 链接 */
 #header .header-nav .header-nav-wrapper>li>a {
   color: #000;
-  font-size: 20px;
-  /* font-weight: bold; */
+  font-size: 2.5vh;
   padding: 15px 0;
   position: relative;
 }
@@ -431,6 +435,12 @@ function menuClick() {
   background: rgb(255, 255, 255);
 }
 
+@media (max-width: 1367px) {
+  #header .header-nav .header-nav-wrapper>li>a {
+    font-size: 18px; /* 设置最小字体大小 */
+  }
+}
+
 @media screen and (max-width: 997px) {
   #header .header-nav-m {
     position: relative;
@@ -444,8 +454,8 @@ function menuClick() {
 
   /* 导航栏logo图片 */
   #header .header-nav-m .header-nav-m-logo img {
-    width: 95px;
-    height: 45px;
+    width: 180px;
+    height: 60px;
     position: absolute;
     top: 0;
     left: 0;

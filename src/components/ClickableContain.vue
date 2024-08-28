@@ -111,7 +111,7 @@ export default {
 
 @media (max-width: 767px) {
   .news-item {
-    width: calc(50% - 12px);
+    width: calc(100% - 12px);
   }
 }
 </style>

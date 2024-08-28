@@ -80,9 +80,7 @@
 <script setup name="HomePage">
 import WOW from 'wow.js'
 import { getCurrentInstance, onMounted } from 'vue'
-// import Swiper from 'swiper'
-import { Navigation, Pagination, Scrollbar, A11y, Lazy, Autoplay } from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/vue'
+
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
@@ -92,22 +90,6 @@ import 'swiper/css/autoplay'
 import { useRouter } from 'vue-router'
 
 import NewsContainer from '@/components/ClickableContain.vue'
-import swiper1 from '@/assets/img/swiper1.png'
-import swiper2 from '@/assets/img/swiper2.png'
-import product1 from '@/assets/img/products1.png'
-import product2 from '@/assets/img/products2.png'
-import product3 from '@/assets/img/products3.png'
-import logo_hp from '@/assets/img/logo_hp.png'
-import logo_kk from '@/assets/img/logo_kk.png'
-import logo_toyota from '@/assets/img/logo_toyota.png'
-
-import img_tel from '@/assets/img/tel.png'
-import img_computer from '@/assets/img/computer.png'
-import img_qq from '@/assets/img/qq.png'
-import img_skill from '@/assets/img/skill.png'
-import { ref } from 'vue';
-
-const isHovered = ref(-1);
 
 const handleMouseEnterScale = (event) => {
   // 添加放大效果
@@ -117,182 +99,13 @@ const handleMouseLeaveScale = (event) => {
   // 移除放大效果
   event.target.style.transform = 'scale(1)';
 }
-
-const handleMouseEnter = (index) => {
-  isHovered.value = index;
-};
-
-const handleMouseLeave = () => {
-  isHovered.value = -1;
-};
 const router = useRouter();
-const swiperList = [
-  {
-    img: swiper1,
-    title: '',
-    content: ''
-  },
-  {
-    img: swiper2,
-    title: '',
-    content: ''
-  },
-  {
-    img: swiper1,
-    title: '',
-    content: ''
-  },
-  {
-    img: swiper2,
-    title: '',
-    content: ''
-  }
-]
-const images = [
-  {
-    src: product1,
-    links: [
-      { url: 'https://example.com/link1', text: 'Link 1' },
-      { url: 'https://example.com/link2', text: 'Link 2' },
-      { url: 'https://example.com/link3', text: 'Link 3' }
-    ]
-  },
-  {
-    src: product2,
-    links: [
-      { url: 'https://example.com/link1', text: 'Link 1' },
-      { url: 'https://example.com/link2', text: 'Link 2' },
-      { url: 'https://example.com/link3', text: 'Link 3' }
-    ]
-  },
-  {
-    src: product3,
-    links: [
-      { url: 'https://example.com/link1', text: 'Link 1' },
-      { url: 'https://example.com/link2', text: 'Link 2' },
-      { url: 'https://example.com/link3', text: 'Link 3' }
-    ]
-  }
-]
-const modules = [Navigation, Pagination, Scrollbar, A11y, Lazy, Autoplay]
 
-const customerList = [
-  {
-    logo: logo_hp,
-    title:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-    content:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。'
-  },
-  {
-    logo: logo_kk,
-    title:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-    content:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。'
-  },
-  {
-    logo: logo_toyota,
-    title:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-    content:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。'
-  },
-  {
-    logo: logo_kk,
-    title:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-    content:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。'
-  },
-  {
-    logo: logo_hp,
-    title:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-    content:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。'
-  },
-  {
-    logo: logo_toyota,
-    title:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-    content:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。'
-  },
-  {
-    logo: logo_kk,
-    title:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-    content:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。'
-  },
-  {
-    logo: logo_hp,
-    title:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-    content:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。'
-  },
-  {
-    logo: logo_toyota,
-    title:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-    content:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。'
-  },
-  {
-    logo: logo_hp,
-    title:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-    content:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。'
-  },
-  {
-    logo: logo_kk,
-    title:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-    content:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。'
-  },
-  {
-    logo: logo_hp,
-    title:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-    content:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。'
-  }
-]
-
-const serverList = [
-  {
-    logo: img_tel,
-    title: '核心优势1',
-    content: '<p>由专业客服提供人工服务</p>负责疑难问题和故障受理'
-  },
-  {
-    logo: img_computer,
-    title: '核心优势2',
-    content: '<p>利用远程视频工具，提供协助</p>帮助客户进行调试、解决故障'
-  },
-  {
-    logo: img_qq,
-    title: '核心优势3',
-    content: '<p>利用企业QQ提供在线解答</p>帮助企业快速准确解决问题和故障'
-  },
-  {
-    logo: img_skill,
-    title: '核心优势4',
-    content: '<p>由技术支持工程师，负责问题解答</p>需求受理及故障受理'
-  }
-]
 function jumpto_product() {
   router.push({ path: '/software' })
 }
-// const { proxy } = getCurrentInstance() //获取上下文实例，ctx=vue2的this
 onMounted(() => {
-  // console.log('mounted', proxy)
-  // console.log(proxy.$wow, '------')
-  /* wowjs动画 */
+
   new WOW({
     boxClass: 'wow',
     animateClass: 'animated',
@@ -307,7 +120,6 @@ onMounted(() => {
 /* 整体盒子 */
 #HomePage {
   width: 100%;
-
 }
 
 .HomePage-banner {
