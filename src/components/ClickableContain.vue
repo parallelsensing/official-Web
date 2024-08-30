@@ -18,10 +18,10 @@ export default {
   name: 'NewsContainer',
   data() {
     return {
-      newsItems: [
+       newsItems: [
         {
           id: 1,
-          imageUrl: '/src/assets/img/新闻资讯.jpg',
+          imageUrl: '@/assets/img/新闻资讯.jpg',
           title: '新闻资讯1',
           date: '2024-08-31',
           abstract: '新闻资讯1的摘要信息。',
@@ -29,7 +29,7 @@ export default {
         },
         {
           id: 2,
-          imageUrl: '/src/assets/img/新闻资讯2.png',
+          imageUrl: '@/assets/img/新闻资讯2.png',
           title: '新闻资讯2',
           date: '2024-08-31',
           abstract: '新闻资讯2的摘要信息。',
@@ -37,7 +37,7 @@ export default {
         },
         {
           id: 3,
-          imageUrl: '/src/assets/img/新闻资讯3.jpg',
+          imageUrl: '@/assets/img/新闻资讯3.jpg',
           title: '新闻资讯3',
           date: '2024-08-31',
           abstract: '新闻资讯3的摘要信息。',
