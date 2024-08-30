@@ -1,8 +1,15 @@
 <template>
   <div class="news-container">
-    <div class="news-item" @click="handleClick" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave" v-for="item in newsItems" :key="item.id">
+    <div
+      class="news-item"
+      @click="handleClick(item)"
+      @mouseenter="handleMouseEnter"
+      @mouseleave="handleMouseLeave"
+      v-for="item in newsItems"
+      :key="item.id"
+    >
       <div class="image">
-        <img :src="item.imageUrl" :alt="item.title">
+        <img :src="item.imageUrl" :alt="item.title" />
       </div>
       <div class="content">
         <h3>{{ item.title }}</h3>
@@ -13,54 +20,54 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'NewsContainer',
-  data() {
-    return {
-      newsItems: [
-        {
-          id: 1,
-          imageUrl: '/src/assets/img/新闻资讯.jpg',
-          title: '新闻资讯1',
-          date: '2024-08-31',
-          abstract: '新闻资讯1的摘要信息。',
-          url: 'https://example.com/news1'
-        },
-        {
-          id: 2,
-          imageUrl: '/src/assets/img/新闻资讯2.png',
-          title: '新闻资讯2',
-          date: '2024-08-31',
-          abstract: '新闻资讯2的摘要信息。',
-          url: 'https://example.com/news2'
-        },
-        {
-          id: 3,
-          imageUrl: '/src/assets/img/新闻资讯3.jpg',
-          title: '新闻资讯3',
-          date: '2024-08-31',
-          abstract: '新闻资讯3的摘要信息。',
-          url: 'https://example.com/news3'
-        }
-      ]
-    }
+<script setup>
+import { ref } from 'vue';
+
+// 引入图片资源
+import service1 from '@/assets/img/新闻资讯.jpg';
+import service2 from '@/assets/img/新闻资讯2.png';
+import service3 from '@/assets/img/新闻资讯3.jpg';
+
+// 定义新闻数据
+const newsItems = ref([
+  {
+    id: 1,
+    imageUrl: service1,
+    title: '新闻资讯1',
+    date: '2024-08-31',
+    abstract: '新闻资讯1的摘要信息。',
+    url: 'https://example.com/news1',
   },
-  methods: {
-    handleClick(item) {
-      // 处理点击事件，比如跳转到新闻详情页
-      window.location.href = item.url;
-    },
-    handleMouseEnter(event) {
-      // 添加放大效果
-      event.target.style.transform = 'scale(1.05)';
-    },
-    handleMouseLeave(event) {
-      // 移除放大效果
-      event.target.style.transform = 'scale(1)';
-    }
-  }
-}
+  {
+    id: 2,
+    imageUrl: service2,
+    title: '新闻资讯2',
+    date: '2024-08-31',
+    abstract: '新闻资讯2的摘要信息。',
+    url: 'https://example.com/news2',
+  },
+  {
+    id: 3,
+    imageUrl: service3,
+    title: '新闻资讯3',
+    date: '2024-08-31',
+    abstract: '新闻资讯3的摘要信息。',
+    url: 'https://example.com/news3',
+  },
+]);
+
+// 定义方法
+const handleClick = (item) => {
+  window.location.href = item.url;
+};
+
+const handleMouseEnter = (event) => {
+  event.target.style.transform = 'scale(1.05)';
+};
+
+const handleMouseLeave = (event) => {
+  event.target.style.transform = 'scale(1)';
+};
 </script>
 
 <style scoped>

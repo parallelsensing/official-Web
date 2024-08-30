@@ -45,6 +45,12 @@ import WOW from 'wow.js'
 import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
+// 引入图片资源
+import newsImg1 from '@/assets/img/新闻资讯.jpg'
+import newsImg2 from '@/assets/img/新闻资讯2.png'
+import newsImg3 from '@/assets/img/新闻资讯3.jpg'
+import testImg from '@/assets/img/test.png'
+
 const router = useRouter();
 const selectedNews = ref('company');
 const newsList = ref([]);
@@ -60,6 +66,7 @@ function goToNewsDetail(id) {
   });
 }
 
+// 使用已引入的图片资源
 const newsCompanyList = [
   {
     id: '1',
@@ -67,7 +74,7 @@ const newsCompanyList = [
     introduce:
       '近日，人工智能（AI）在医疗领域再次取得了突破性进展。',
     date: '2019-05-24',
-    imageUrl: '/src/assets/img/新闻资讯.jpg',
+    imageUrl: newsImg1,
   },
   {
     id: '2',
@@ -75,7 +82,7 @@ const newsCompanyList = [
     introduce:
       '为计算程序拟定“算法”，写作的第四份“程序设计流程图”，被珍视为“第一位给计算机',
     date: '2019-05-24',
-    imageUrl: '/src/assets/img/新闻资讯2.png',
+    imageUrl: newsImg2,
   },
   {
     id: '3',
@@ -83,7 +90,7 @@ const newsCompanyList = [
     introduce:
       '为计算程序拟定“算法”，写作的第四份“程序设计流程图”，被珍视为“第一位给计算机',
     date: '2019-05-24',
-    imageUrl: '/src/assets/img/新闻资讯3.jpg',
+    imageUrl: newsImg3,
   },
   {
     id: '4',
@@ -91,7 +98,7 @@ const newsCompanyList = [
     introduce:
       '为计算程序拟定“算法”，写作的第四份“程序设计流程图”，被珍视为“第一位给计算机',
     date: '2019-05-24',
-    imageUrl: '/src/assets/img/新闻资讯2.png',
+    imageUrl: newsImg2,
   },
   {
     id: '5',
@@ -99,7 +106,7 @@ const newsCompanyList = [
     introduce:
       '为计算程序拟定“算法”，写作的第五份“程序设计流程图”，被珍视为“第一位给计算机',
     date: '2019-05-24',
-    imageUrl: '/src/assets/img/新闻资讯3.jpg',
+    imageUrl: newsImg3,
   },
   {
     id: '6',
@@ -107,7 +114,7 @@ const newsCompanyList = [
     introduce:
       '为计算程序拟定“算法”，写作的第五份“程序设计流程图”，被珍视为“第一位给计算机',
     date: '2019-05-24',
-    imageUrl: '/src/assets/img/新闻资讯.jpg',
+    imageUrl: newsImg1,
   }
 ]
 
@@ -118,7 +125,7 @@ const newsIndustryList = [
     introduce:
       '上周，智慧驾驶（AI）在标高用户提供若非如果他人发再次取得了突破性进展。',
     date: '2023-09-30',
-    imageUrl: '/src/assets/img/test.png',
+    imageUrl: testImg,
   },
   {
     id: '2',
@@ -126,7 +133,7 @@ const newsIndustryList = [
     introduce:
       '为计算程序拟定“算法”，写作的第四份“程序设计流程图”，被珍视为“第一位给计算机',
     date: '2022-10-14',
-    imageUrl: '/src/assets/img/新闻资讯.jpg',
+    imageUrl: newsImg1,
   },
   {
     id: '3',
@@ -134,7 +141,7 @@ const newsIndustryList = [
     introduce:
       '为计算程序拟定“算法”，写作的第四份“程序设计流程图”，被珍视为“第一位给计算机',
     date: '2019-05-24',
-    imageUrl: '/src/assets/img/新闻资讯3.jpg',
+    imageUrl: newsImg3,
   },
   {
     id: '4',
@@ -142,7 +149,7 @@ const newsIndustryList = [
     introduce:
       '为计算程序拟定“算法”，写作的第四份“程序设计流程图”，被珍视为“第一位给计算机',
     date: '2019-05-24',
-    imageUrl: '/src/assets/img/新闻资讯2.png',
+    imageUrl: newsImg2,
   },
   {
     id: '5',
@@ -150,7 +157,7 @@ const newsIndustryList = [
     introduce:
       '为计算程序拟定“算法”，写作的第五份“程序设计流程图”，被珍视为“第一位给计算机',
     date: '2019-05-24',
-    imageUrl: '/src/assets/img/新闻资讯3.jpg',
+    imageUrl: newsImg3,
   },
   {
     id: '6',
@@ -158,7 +165,7 @@ const newsIndustryList = [
     introduce:
       '为计算程序拟定“算法”，写作的第五份“程序设计流程图”，被珍视为“第一位给计算机',
     date: '2019-05-24',
-    imageUrl: '/src/assets/img/新闻资讯.jpg',
+    imageUrl: newsImg1,
   }
 ]
 
