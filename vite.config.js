@@ -6,7 +6,7 @@ import { createHtmlPlugin } from 'vite-plugin-html'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/official-website/',
+  base: '/',
   plugins: [
     vue(),
     inject({
@@ -31,6 +31,9 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, './src')
     }
+  },
+  server: {
+    port: 3034,
+    host: '0.0.0.0', // 允许从网络访问
   }
 })
-
