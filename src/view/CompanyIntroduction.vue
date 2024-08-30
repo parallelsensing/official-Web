@@ -112,6 +112,10 @@ import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import 'swiper/css/lazy'
 import 'swiper/css/autoplay'
+// 引入资源
+import newsImg1 from '@/assets/img/奖项1.png'
+import newsImg2 from '@/assets/img/奖项2.png'
+import newsImg3 from '@/assets/img/奖项3.png'
 
 const selectedButton = ref('intro')
 const flashing = ref(null)
@@ -154,30 +158,30 @@ const menuButtons = [
   { code: 'intro', label: '公司简介' },
   { code: 'teams', label: '管理团队' }
 ]
+
 const items = [
   {
     id: 1,
-    imageUrl: '/src/assets/img/奖项1.png',
+    imageUrl: newsImg1,
     title: "2024年度榜单",
     date: "2024年1月16日",
     abstract: "内容摘要......",
     url: 'https://example.com/news1'
   }, {
     id: 2,
-    imageUrl: '/src/assets/img/奖项2.png',
+    imageUrl: newsImg2,
     title: "XXXXX企业奖",
     date: "2023年10月16日",
     abstract: "内容摘要......",
     url: 'https://example.com/news1'
   }, {
     id: 3,
-    imageUrl: '/src/assets/img/奖项3.png',
+    imageUrl: newsImg3,
     title: "XXXXXXXX奖",
     date: "2023年9月26日",
     abstract: "内容摘要......",
     url: 'https://example.com/news1'
   }
-
 ]
 
 const handleFlash = (code, state) => {
@@ -451,4 +455,6 @@ onMounted(() => {
     color: #920783;
     font-size: 2.5rem;
   }
-}</style>
+}
+
+</style>
