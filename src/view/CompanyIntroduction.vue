@@ -112,7 +112,7 @@ import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import 'swiper/css/lazy'
 import 'swiper/css/autoplay'
-// 引入图片资源
+// 引入资源
 import newsImg1 from '@/assets/img/奖项1.png'
 import newsImg2 from '@/assets/img/奖项2.png'
 import newsImg3 from '@/assets/img/奖项3.png'
