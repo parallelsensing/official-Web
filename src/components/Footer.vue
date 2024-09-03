@@ -82,11 +82,6 @@ const navList = [
     name: '工作机会',
     path: '/jobchance',
     children: []
-  },
-  {
-    name: '联系我们',
-    path: '/contactus',
-    children: []
   }
 ]
 function navClick(index, name) {

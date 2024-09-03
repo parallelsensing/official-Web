@@ -71,6 +71,36 @@
         </div>
       </div>
 
+      <div>
+        <h2 class="contact-heading">联系我们</h2>
+        <div class="honour-marked"></div>
+        <div class="contact-container">
+          <div class="contact-box">
+            <div class="contact-image">
+              <img src="@/assets/img/address01.jpg" alt="办公地点" class="contact-img">
+            </div>
+            <div class="contact-info">
+              <h3 class="contact-space">办公地址</h3>
+              <h4 class="contact-space">{{ address }}</h4>
+              <h4 class="contact-space">{{ company }}</h4>
+              <h4>{{ phone }}</h4>
+            </div>
+          </div>
+
+          <div class="contact-box">
+            <div class="contact-info">
+              <h3 class="contact-space">运营中心</h3>
+              <h4 class="contact-space">{{ address }}</h4>
+              <h4 class="contact-space">{{ company }}</h4>
+              <h4>{{ phone }}</h4>
+            </div>
+            <div class="contact-image">
+              <img src="@/assets/img/address02.jpg" alt="办公地点" class="contact-img">
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="honour">
         <h2>荣誉奖项</h2>
         <div class="honour-marked"></div>
@@ -116,6 +146,9 @@ import 'swiper/css/autoplay'
 import newsImg1 from '@/assets/img/奖项1.png'
 import newsImg2 from '@/assets/img/奖项2.png'
 import newsImg3 from '@/assets/img/奖项3.png'
+const company = import.meta.env.VITE_APP_COMPANYNAME
+const address = import.meta.env.VITE_APP_ADDRESS
+const phone = import.meta.env.VITE_APP_PHONE
 
 const selectedButton = ref('intro')
 const flashing = ref(null)
@@ -398,6 +431,47 @@ onMounted(() => {
   line-height: 2.5rem;
 }
 
+.contact-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 660px;
+  margin-bottom: 80px;
+  margin-top: 20px;
+}
+
+.contact-box {
+  display: flex;
+  height: 300px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 5px rgba(125, 125, 125, 0.2);
+}
+
+.contact-image {
+  flex: 1;
+  padding: 20px;
+}
+
+.contact-info {
+  flex: 1;
+  padding: 10px 30px;
+}
+
+.contact-img {
+  width: 100%;
+  height: 100%;
+}
+
+.contact-space {
+  margin-bottom: 40px;
+}
+
 @media screen and (max-width: 997px) {
   .CompanyIntroduction-container {
     padding: 10px 0;
@@ -455,6 +529,21 @@ onMounted(() => {
     color: #920783;
     font-size: 2.5rem;
   }
-}
 
+  .contact-box {
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 5px rgba(125, 125, 125, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .contact-container {
+    height: auto;
+    margin-bottom: 80px;
+    margin-top: 20px;
+  }
+}
 </style>
