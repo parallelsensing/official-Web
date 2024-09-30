@@ -126,6 +126,37 @@
         </div>
       </div>
     </div>
+    <div v-else class="container">
+      <div>
+        <ul class="container-fuild custom-ul">
+          <li v-for="(item, index) in memberList" :key="index" class="wow fadeIn custom-li">
+            <div class="li-content">
+              <img :src="item.imageUrl" />
+              <div>
+              </div>
+            </div>
+
+            <div class="li-content-text">
+              <div class="content">
+                <h3 class="custom-h3" @click="goToNewsDetail(index)">{{ item.title }}</h3>
+                <p style="color:dimgrey;">{{ item.position }}</p>
+
+                <p style="width:90%">{{ item.introduce }}</p>
+              </div>
+            </div>
+
+          </li>
+        </ul>
+
+        <div class="loading-button">
+          <button>
+            查看更多
+          </button>
+        </div>
+      </div>
+
+
+    </div>
   </div>
 </template>
 
@@ -146,6 +177,9 @@ import 'swiper/css/autoplay'
 import newsImg1 from '@/assets/img/奖项1.png'
 import newsImg2 from '@/assets/img/奖项2.png'
 import newsImg3 from '@/assets/img/奖项3.png'
+import newsImg4 from '@/assets/img/人物1.png'
+import newsImg5 from '@/assets/img/人物2.png'
+import newsImg6 from '@/assets/img/人物3.png'
 const company = import.meta.env.VITE_APP_COMPANYNAME
 const address = import.meta.env.VITE_APP_ADDRESS
 const phone = import.meta.env.VITE_APP_PHONE
@@ -217,6 +251,32 @@ const items = [
   }
 ]
 
+const memberList = [
+  {
+    id: '1',
+    title: 'Alvin yong',
+    position: '首席执行官',
+    introduce:
+      '是一个职位名称，是在一个企业中负责日常事务的最高行政官员，主司企业行政事务，故又称作司政、行政总裁、总经理或最高执行长。',
+    imageUrl: newsImg4,
+  },
+  {
+    id: '2',
+    title: 'Alvin yong',
+    position: '联合创始人',
+    introduce:
+      '是一个职位名称，是在一个企业中负责日常事务的最高行政官员，主司企业行政事务，故又称作司政、行政总裁、总经理或最高执行长。',
+    imageUrl: newsImg5,
+  },
+  {
+    id: '3',
+    title: 'Alvin yong',
+    position: '联合创始人',
+    introduce:
+      '是一个职位名称，是在一个企业中负责日常事务的最高行政官员，主司企业行政事务，故又称作司政、行政总裁、总经理或最高执行长。',
+    imageUrl: newsImg6,
+  }
+]
 const handleFlash = (code, state) => {
   flashing.value = state ? code : null;
 }
@@ -472,12 +532,59 @@ onMounted(() => {
   margin-bottom: 40px;
 }
 
-@media screen and (max-width: 997px) {
-  .CompanyIntroduction-container {
-    padding: 10px 0;
-    color: #808080;
-  }
+.li-content-text {
+  width: 60%;
+  height: 200px;
+  margin-left: 4%;
 }
+
+.li-content {
+  position: relative;
+  width: 20%;
+  height: 250px;
+}
+
+.li-content>img {
+  width: 100%;
+  height: 100%;
+  padding: 1%;
+  z-index: 2;
+  position: absolute;
+  top: -40px;
+  left: 5px;
+}
+
+.li-content>div {
+  width: 98%;
+  height: 95%;
+  padding: 1%;
+  background-color: #920783;
+  z-index: 1;
+  position: absolute;
+  top: -24px;
+  left: 14px;
+}
+
+.custom-li {
+  display: flex;
+  margin-bottom: 50px;
+  background-color: #DCDCDC;
+}
+
+.custom-ul {
+  margin-top: 0;
+}
+
+.custom-h1 {
+  font-size: 4.5rem;
+}
+
+.custom-h3 {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
 
 @media (max-width: 767px) {
   .introduction-card {
@@ -545,5 +652,12 @@ onMounted(() => {
     margin-bottom: 80px;
     margin-top: 20px;
   }
+
+  .li-content {
+    position: relative;
+    width: 200px;
+    height: 250px;
+  }
+
 }
 </style>
